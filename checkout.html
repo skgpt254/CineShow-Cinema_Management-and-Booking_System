@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout - CineBook</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <nav>
+        <h2>CineBook</h2>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="movies.html">Movies</a>
+            <a href="cinemas.html">Cinemas</a>
+            <a href="admin.html">Admin</a>
+        </div>
+    </nav>
+</header>
+
+
+<main class="container">
+    <h1>Checkout</h1>
+
+    <div class="box">
+        <h2>Customer Details</h2>
+
+        <form action="confirmation.html">
+            <label>Name</label>
+            <input type="text" placeholder="Enter your name" required>
+
+            <label>Email</label>
+            <input type="email" placeholder="Enter your email" required>
+
+            <label>Mobile Number</label>
+            <input type="tel" placeholder="Enter mobile number" required>
+
+            <label>Payment Method</label>
+            <select>
+                <option>UPI</option>
+                <option>Card</option>
+                <option>Net Banking</option>
+            </select>
+
+            <h2>Booking Summary</h2>
+            <p>Movie: Interstellar</p>
+            <p>Cinema: CineBook Mathura</p>
+            <p>Show: 5:30 PM</p>
+            <p>Seats: B4, B6</p>
+            <p>Tickets: ₹500</p>
+            <p>Convenience Fee: ₹40</p>
+            <h3>Total: ₹540</h3>
+
+            <button class="button" type="submit">Confirm Booking</button>
+        </form>
+    </div>
+</main>
+
+
+<footer>
+    <p>CineBook - Movie Ticket Booking Project</p>
+    <p>Made using HTML and CSS</p>
+</footer>
+
+</body>
+</html>
