@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - CineShow</title>
+
+    <!--
+        Checkout page styles for Rohit Kumar (CineShow theme subset).
+        These mirror the shared style.css theme so the page looks consistent.
+        Once the shared stylesheet is available these may be trimmed.
+    -->
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f5f5f5;
+            color: #222;
+        }
+
+        header {
+            background: #222;
+            color: white;
+            padding: 15px 0;
+        }
+
+        nav {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        nav h2 { margin: 0; }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 18px;
+        }
+
+        nav a:hover { color: #ffcc66; }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 30px auto;
+        }
+
+        .page-title { margin: 0 0 5px; }
+        .page-sub { color: #666; margin: 0 0 25px; }
+
+        .box {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px #ccc;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .box h2 { margin: 0 0 16px; font-size: 1.25rem; }
+
+        .button {
+            display: inline-block;
+            background: #6c4ce8;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            font: inherit;
+            font-weight: 600;
+        }
+
+        .button:hover { background: #5135c5; }
+        .button:focus-visible { outline: 2px solid #222; outline-offset: 2px; }
+
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 20px;
+            align-items: start;
+        }
+
+        /* ---- Booking details ---- */
+
+        .movie-banner { display: flex; gap: 16px; }
+
+        .movie-banner img {
+            width: 110px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 6px;
+            background: #eee;
+        }
+
+        .movie-banner h3 { margin: 0 0 6px; font-size: 1.3rem; }
+        .movie-meta { color: #666; margin: 2px 0; font-size: .95rem; }
+
+        .show-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px 20px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .key {
+            display: block;
+            font-size: .8rem;
+            text-transform: uppercase;
+            letter-spacing: .4px;
+            color: #888;
+            margin-bottom: 3px;
+        }
+
+        .show-item .val { font-weight: 600; }
+
+        .seats-box {
+            margin-top: 18px;
+            padding-top: 18px;
+            border-top: 1px solid #eee;
+        }
+
+        .seat-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 0; }
+
+        .seat-chip {
+            background: #e9e4ff;
+            color: #4b34c9;
+            border: 1px solid #6c4ce8;
+            border-radius: 4px;
+            padding: 4px 10px;
+            font-weight: 600;
+            font-size: .9rem;
+        }
+
+        /* ---- Customer & payment form ---- */
+
+        .form-group { margin-bottom: 14px; }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: .9rem;
+            margin-bottom: 6px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font: inherit;
+        }
+
+        input:focus, select:focus {
+            outline: 2px solid #6c4ce8;
+            outline-offset: -1px;
+            border-color: #6c4ce8;
+        }
+
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+        .pay-methods { position: relative; margin-top: 18px; padding-top: 18px; border-top: 1px solid #eee; }
+
+        .pay-methods > input[type="radio"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .pay-tabs { display: flex; gap: 6px; }
+
+        .pay-tabs label {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background: #f2f2f2;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #444;
+        }
+
+        .pay-tabs label:hover { background: #e9e4ff; border-color: #6c4ce8; }
+
+        .pay-methods input#pay-upi:checked ~ .pay-tabs label[for="pay-upi"],
+        .pay-methods input#pay-card:checked ~ .pay-tabs label[for="pay-card"],
+        .pay-methods input#pay-net:checked ~ .pay-tabs label[for="pay-net"] {
+            background: #6c4ce8;
+            border-color: #6c4ce8;
+            color: white;
+        }
+
+        .pay-methods input#pay-upi:focus-visible ~ .pay-tabs label[for="pay-upi"],
+        .pay-methods input#pay-card:focus-visible ~ .pay-tabs label[for="pay-card"],
+        .pay-methods input#pay-net:focus-visible ~ .pay-tabs label[for="pay-net"] {
+            outline: 2px dashed #222;
+            outline-offset: 2px;
+        }
+
+        .pay-panel {
+            display: none;
+            margin-top: 16px;
+            padding: 18px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            background: #fafafa;
+        }
+
+        .pay-methods input#pay-upi:checked ~ .pay-panel-upi,
+        .pay-methods input#pay-card:checked ~ .pay-panel-card,
+        .pay-methods input#pay-net:checked ~ .pay-panel-net { display: block; }
+
+        /* ---- Price summary ---- */
+
+        .summary-box { position: sticky; top: 20px; }
+
+        .price-rows { display: flex; flex-direction: column; gap: 10px; margin: 16px 0; }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: .95rem;
+            color: #444;
+        }
+
+        .price-row.total-row {
+            border-top: 2px solid #eee;
+            padding-top: 12px;
+            margin-top: 4px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #222;
+        }
+
+        .price-row .total { color: #6c4ce8; }
+
+        .button-primary {
+            width: 100%;
+            text-align: center;
+            font-size: 1.05rem;
+            padding: 14px 20px;
+        }
+
+        .muted-note {
+            font-size: .82rem;
+            color: #888;
+            text-align: center;
+            margin: 12px 0 0;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 8px;
+            color: #6c4ce8;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .back-link:hover { text-decoration: underline; }
+
+        /* ---- Validation state ---- */
+
+        .form-group.invalid input,
+        .form-group.invalid select { border-color: #c0392b; }
+
+        .field-error {
+            display: none;
+            color: #c0392b;
+            font-size: .85rem;
+            margin: 5px 0 0;
+        }
+
+        .field-error.visible { display: block; }
+
+        /* ---- Missing booking state ---- */
+
+        .booking-missing { text-align: center; padding: 40px 25px; }
+
+        .booking-missing h2 { margin-top: 0; }
+
+        .booking-missing p { color: #666; margin-bottom: 22px; }
+
+        .booking-missing .button { margin: 0 6px; }
+
+        .button-secondary {
+            background: white;
+            color: #6c4ce8;
+            border: 1px solid #6c4ce8;
+        }
+
+        .button-secondary:hover { background: #e9e4ff; color: #4b34c9; }
+
+        footer {
+            margin-top: 50px;
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        footer p { margin: 4px 0; }
+
+        @media (max-width: 900px) {
+            .checkout-grid { grid-template-columns: 1fr; }
+            .summary-box { position: static; }
+        }
+
+        @media (max-width: 700px) {
+            nav { flex-direction: column; gap: 12px; }
+            nav a { margin: 0 6px; }
+        }
+
+        @media (max-width: 480px) {
+            .show-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .movie-banner img { width: 90px; height: 125px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <h2>CineShow</h2>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="movies.html">Movies</a>
+            <a href="cinemas.html">Cinemas</a>
+            <a href="admin.html">Admin</a>
+        </div>
+    </nav>
+</header>
+
+<main class="container">
+    <h1 class="page-title">Checkout</h1>
+    <p class="page-sub">Review your booking and confirm your payment.</p>
+
+    <form id="checkoutForm" novalidate>
+        <div class="checkout-grid">
+
+            <!-- Left column: booking + payment details -->
+            <div class="checkout-main">
+
+                <section class="box" aria-labelledby="bookingDetailsHeading">
+                    <h2 id="bookingDetailsHeading">Booking Details</h2>
+
+                    <div class="movie-banner">
+                        <img id="checkoutPoster" src="https://images.unsplash.com/photo-1446776877081-d282a0f896e2?auto=format&fit=crop&w=500&q=80" alt="Movie poster">
+                        <div>
+                            <h3 id="checkoutMovieTitle">Interstellar</h3>
+                            <p class="movie-meta" id="checkoutMovieMeta">Sci-Fi, Adventure &bull; Rating 8.7/10</p>
+                            <p class="movie-meta" id="checkoutMovieDuration">Duration: 2h 49m</p>
+                        </div>
+                    </div>
+
+                    <div class="show-grid">
+                        <div class="show-item">
+                            <span class="key">Cinema</span>
+                            <span class="val" id="checkoutCinema">CineShow Mathura</span>
+                        </div>
+                        <div class="show-item">
+                            <span class="key">Screen</span>
+                            <span class="val" id="checkoutScreen">Screen 2</span>
+                        </div>
+                        <div class="show-item">
+                            <span class="key">Date</span>
+                            <span class="val" id="checkoutDate">20 September 2026</span>
+                        </div>
+                        <div class="show-item">
+                            <span class="key">Show Time</span>
+                            <span class="val" id="checkoutTime">7:30 PM</span>
+                        </div>
+                    </div>
+
+                    <div class="seats-box">
+                        <span class="key">Selected Seats</span>
+                        <div class="seat-chips" id="checkoutSeats">
+                            <span class="seat-chip">A5</span>
+                            <span class="seat-chip">A6</span>
+                        </div>
+                        <p class="movie-meta" id="checkoutTicketNote">2 tickets</p>
+                    </div>
+                </section>
+
+                <section class="box" aria-labelledby="customerDetailsHeading">
+                    <h2 id="customerDetailsHeading">Customer Details</h2>
+
+                    <div class="form-group">
+                        <label for="payName">Full Name</label>
+                        <input type="text" id="payName" name="name" placeholder="Enter your full name" autocomplete="name">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="payEmail">Email</label>
+                            <input type="email" id="payEmail" name="email" placeholder="you@example.com" autocomplete="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="payMobile">Mobile Number</label>
+                            <input type="tel" id="payMobile" name="mobile" placeholder="10-digit mobile number" autocomplete="tel" inputmode="numeric">
+                        </div>
+                    </div>
+                </section>
+
+                <section class="box" aria-labelledby="paymentHeading">
+                    <h2 id="paymentHeading">Payment</h2>
+
+                    <div class="pay-methods" role="radiogroup" aria-labelledby="paymentHeading">
+                        <input type="radio" name="payMethod" id="pay-upi" value="upi" checked>
+                        <input type="radio" name="payMethod" id="pay-card" value="card">
+                        <input type="radio" name="payMethod" id="pay-net" value="netbanking">
+
+                        <div class="pay-tabs">
+                            <label for="pay-upi">UPI</label>
+                            <label for="pay-card">Card</label>
+                            <label for="pay-net">Net Banking</label>
+                        </div>
+
+                        <div class="pay-panel pay-panel-upi">
+                            <div class="form-group">
+                                <label for="payUpiId">UPI ID</label>
+                                <input type="text" id="payUpiId" name="upiId" placeholder="yourname@upi" inputmode="email">
+                            </div>
+                        </div>
+
+                        <div class="pay-panel pay-panel-card">
+                            <div class="form-group">
+                                <label for="payCardNumber">Card Number</label>
+                                <input type="text" id="payCardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" inputmode="numeric">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="payCardExpiry">Expiry</label>
+                                    <input type="text" id="payCardExpiry" name="cardExpiry" placeholder="MM/YY">
+                                </div>
+                                <div class="form-group">
+                                    <label for="payCardCvv">CVV</label>
+                                    <input type="password" id="payCardCvv" name="cardCvv" placeholder="•••" inputmode="numeric">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pay-panel pay-panel-net">
+                            <div class="form-group">
+                                <label for="payBank">Select Bank</label>
+                                <select id="payBank" name="bank">
+                                    <option value="">Choose a bank below</option>
+                                    <option value="sbi">State Bank of India</option>
+                                    <option value="hdfc">HDFC Bank</option>
+                                    <option value="icici">ICICI Bank</option>
+                                    <option value="axis">Axis Bank</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right column: price summary -->
+            <aside class="checkout-side">
+                <div class="box summary-box" aria-labelledby="summaryHeading">
+                    <h2 id="summaryHeading">Price Breakdown</h2>
+
+                    <div class="price-rows">
+                        <div class="price-row">
+                            <span>Ticket Price</span>
+                            <span id="lblTicketPrice">&#8377;250</span>
+                        </div>
+                        <div class="price-row">
+                            <span>Number of Tickets</span>
+                            <span id="lblTicketCount">2</span>
+                        </div>
+                        <div class="price-row">
+                            <span>Subtotal</span>
+                            <span id="lblSubtotal">&#8377;500</span>
+                        </div>
+                        <div class="price-row">
+                            <span>Convenience / Booking Fee</span>
+                            <span id="lblFee">&#8377;40</span>
+                        </div>
+                        <div class="price-row total-row">
+                            <span>Total Amount</span>
+                            <span class="total" id="lblTotal">&#8377;540</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="button button-primary" id="confirmBtn">
+                        Confirm Booking &amp; Pay
+                    </button>
+                    <p class="muted-note">This is a front-end demo. No real payment is processed.</p>
+                </div>
+            </aside>
+        </div>
+    </form>
+
+    <section class="box booking-missing" id="noBooking" hidden>
+        <h2>No Booking Found</h2>
+        <p>We couldn't find your seat selection. Please choose a movie and your seats to continue.</p>
+        <a class="button" href="movies.html">Browse Movies</a>
+        <a class="button button-secondary" href="book-seats.html">Select Seats</a>
+    </section>
+
+    <a class="back-link" href="book-seats.html">&larr; Back to Seat Selection</a>
+</main>
+
+<footer>
+    <p>CineShow - Movie Ticket Booking Project</p>
+    <p>Made using HTML and CSS</p>
+</footer>
+
+<script src="checkout.js" defer></script>
+</body>
+</html>
