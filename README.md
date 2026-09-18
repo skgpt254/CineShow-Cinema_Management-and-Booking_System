@@ -1,127 +1,131 @@
 # CineShow - Movie Ticket Booking and Cinema Management System
 
-This is the updated, redesigned version of the project. Below you will find two things:
-1. How the work is split between the four team members.
-2. Step by step instructions for working on your own branch and pushing it to GitHub.
+Repository: https://github.com/skgpt254/CineShow-Cinema_Management-and-Booking_System
 
 ---
 
-## 1. Task Split
+## 3. Task Split
 
-Each member should only work inside their own branch, and only touch the files listed
-for them. This keeps everyone's work separate and avoids merge conflicts.
-
-| Member | Branch name | Files to edit | What to build |
+| Member | Branch | Files to edit | What they own |
 |---|---|---|---|
-| **Sandesh** (Leader) | `sandesh-admin-cinemas` | `admin.html`, `admin.js`, `cinemas.html`, `cinemas.js`, `cinemas.json`, `movies.json`, `style.css` | Admin page, Cinemas page, the overall theme, and the JSON data files. Also responsible for reviewing and merging everyone's pull requests. |
-| **Ravi Kumar** | `ravi-home-movies` | `index.html`, `home.js`, `movies.html`, `movies.js` | Home page (with the city selection popup) and the Browse Movies page (with the genre filter). |
-| **Rohit** | `rohit-details-seats` | `movie-details.html`, `details.js`, `book-seats.html`, `seats.js` | Movie Details page and the Seat Selection page. |
-| **Rohit Kumar** | `rohitkumar-checkout-confirm` | `checkout.html`, `checkout.js`, `confirmation.html`, `confirmation.js` | Checkout page and the Booking Confirmation page. |
+| **Sandesh** (Team Lead) | `Member4_Sandesh` | `index.html`, `admin.html`, `css/style.css`, `images/` | Home page, Admin dashboard, the shared theme, and all image assets |
+| **Ravi Kumar** | `Member1_Ravi` | `cinema-details.html`, `movie-details.html`, `booking.html`, `seats.html` | Cinema Details pages, Movie Details page, the booking/showtime selection page, and Seat Selection (including the checkbox trick) |
+| **Rohit** | `Member2_Rohit` | `movies.html`, `cinemas.html`, `offers.html` | Movies listing (with filters), Cinemas and Offers page |
+| **Rohit Kumar** | `Member3_RohitKumar` | `checkout.html`, `payment.html`, `success.html`, `login.html` | Checkout, Payment, the success/e-ticket page, and Login |
 
-**Note on `style.css`:** only Sandesh should edit this file, since the theme is already set up.
-If you need a new style for your own page, add it at the very bottom of `style.css` under a
-comment with your name, for example:
-
-```css
-/* ---- Extra styles for Ravi's Movies page ---- */
-```
-
-This keeps everyone's additions easy to find and reduces the chance of two people editing
-the same lines at the same time.
+**On `css/style.css`:** this file holds the whole design system (CSS custom
+properties, card styles, the seat/payment CSS tricks), so only Sandesh should edit it
+directly. If your page needs one more style rule, add it at the bottom under a
+comment with your name and let Sandesh know, so it doesn't get overwritten.
 
 ---
 
-## 2. Git Workflow (Step by Step)
+## 4. Git Workflow
 
-Everyone except Sandesh should follow these steps.
+Same structure as before: `main` is the final version, `dev` is where everyone's work
+gets combined and tested, and each person has their own branch.
 
-### One-time setup
-
-```bash
-git clone https://github.com/skgpt254/CineShow-Cinema_Management-and-Booking_System.git
-cd CineShow-Cinema_Management-and-Booking_System
+```
+main
+  |
+  └── dev
+       ├── Member1_Ravi
+       ├── Member2_Rohit
+       ├── Member3_RohitKumar
+       └── Member4_Sandesh
 ```
 
-### Before you start working, every time
+### Sandesh - push this version and (re)create `dev`
 
 ```bash
-git checkout main
+git switch main
 git pull origin main
 ```
 
-This makes sure you have the latest code that Sandesh or anyone else has already merged.
-
-### Create your branch (only the first time)
-
-```bash
-git checkout -b your-branch-name
-```
-
-For example, Ravi would run:
-```bash
-git checkout -b ravi-home-movies
-```
-
-### Do your work, then save it
-
-Edit only the files assigned to you, then run:
+Copy every file from this project into the repo folder, replacing what's there now,
+then:
 
 ```bash
 git add .
-git commit -m "Built the home and movies pages"
-git push origin your-branch-name
+git commit -m "Rebuild with fixed images, original movie titles, and clickable seats"
+git push origin main
+
+git switch dev
+git pull origin dev
+git merge main
+git push origin dev
 ```
 
-If it is your first time pushing that branch, use this instead:
-```bash
-git push -u origin your-branch-name
-```
+(If `dev` does not exist yet, use `git switch -c dev` followed by
+`git push -u origin dev` instead of the two lines above.)
 
-### Open a Pull Request (PR) on GitHub
-
-1. Open the repository on GitHub.
-2. You should see a banner saying "Compare & pull request" - click it.
-3. Make sure the base branch is `main` and the compare branch is your branch.
-4. Click "Create pull request".
-5. Let Sandesh know your PR is ready.
-
-### Sandesh's job (as leader)
-
-1. Go to the "Pull requests" tab on GitHub.
-2. Open each PR and check the changed files.
-3. If everything looks fine, click "Merge pull request".
-4. If GitHub shows a conflict (two people edited the same lines), sort it out together, or ask
-   for help figuring it out.
-
-### After a merge, everyone should update again
-
-Once Sandesh merges someone's PR into `main`, everyone else should update their own copy:
+### Everyone else - bring the new code into your branch
 
 ```bash
-git checkout main
-git pull origin main
+git switch Member1_Ravi
+git pull origin dev
 ```
 
-Doing this regularly keeps your branch close to `main` and avoids big conflicts later.
+(swap in your own branch name for the other three people)
+
+If Git reports a conflict, open the file, keep the correct version, then:
+
+```bash
+git add .
+git commit -m "Merge latest dev into my branch"
+git push origin Member1_Ravi
+```
+
+### Normal day-to-day work after that
+
+```bash
+# before starting work
+git switch dev
+git pull origin dev
+git switch Member1_Ravi
+git merge dev
+
+# do your work, then
+git add .
+git commit -m "Describe what you changed"
+git push origin Member1_Ravi
+```
+
+Then open a Pull Request on GitHub with **base = `dev`**, **compare = your branch**.
+Get a teammate to look at it before merging. Once everyone's work is in `dev` and the
+whole site has been clicked through together, Sandesh opens one final Pull Request
+from `dev` into `main`.
+
+**Golden rule:** your branch → Pull Request → `dev` → test everything together →
+Pull Request → `main`. Nobody pushes to `main` directly except for today's setup.
 
 ---
 
-## 3. How to Test the Site Locally
+## 5. How to View the Site
 
-This site loads its data from JSON files (`movies.json`, `cinemas.json`) using JavaScript's
-`fetch()`. If you simply double-click `index.html` and open it directly in the browser, the
-movie list may appear blank. This is a browser security rule about loading local files, not a
-bug in the code.
+No build step, no server required:
 
-To test it properly, use one of these two options:
-
-**Option A (VS Code):** Install the "Live Server" extension, then right-click `index.html`
-and choose "Open with Live Server".
-
-**Option B (Terminal):** From inside the project folder, run:
-```bash
-python -m http.server 8000
-```
-Then open `http://localhost:8000` in your browser.
+- **Directly:** double-click any `.html` file to open it in a browser.
+- **With Live Server:** also works, if you want auto-refresh while editing.
 
 ---
+
+## 6. File Structure
+
+```
+index.html            - Home page (hero, genres, now showing, deals, cinemas, why CineShow)
+movies.html            - Movie catalog with language/genre/format filters
+movie-details.html     - Full movie page: synopsis, cast, trailer placeholder, reviews
+cinemas.html           - Directory of CineShow cinema locations
+cinema-details.html    - One cinema's showtimes by movie
+offers.html            - Discount and coupon cards
+booking.html           - Movie / cinema / date / showtime selection
+seats.html             - Seat map (clickable, see Section 2)
+checkout.html          - Booking summary and snack add-ons
+payment.html           - Payment method selection and demo payment form
+success.html           - Confirmed e-ticket page
+login.html             - Sign in / sign up screen (UI only)
+admin.html             - Cinema staff dashboard
+css/style.css          - The one shared stylesheet, including the CSS-only interactivity
+images/                - All poster and cinema artwork (SVG placeholders, no external links)
+```
