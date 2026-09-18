@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select Seats | CineShow</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="brand-logo"><span>CINE</span><span class="brand-highlight">SHOW</span></a>
+      <nav class="site-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="movies.html" class="nav-link">Movies</a></li>
+          <li><a href="cinemas.html" class="nav-link">Cinemas</a></li>
+          <li><a href="offers.html" class="nav-link">Offers</a></li>
+          <li><a href="admin.html" class="nav-link">Admin</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="login.html" class="btn btn-primary btn-sm">Sign In</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-header-band">
+    <div class="container" style="text-align: center;">
+      <h1>Select Your Cinema Seats</h1>
+      <p>Mirzapur: The Final Reckoning • CineShow Grand Multiplex • Screen 1 (Dolby Atmos)</p>
+    </div>
+  </div>
+
+  <main class="main-content">
+    <div class="container">
+      
+      <div class="seating-wrapper">
+        
+        <!-- Screen Bar -->
+        <div class="screen-indicator">
+          <div class="screen-bar"></div>
+          <span class="screen-text">All Eyes This Way — Cinema Screen</span>
+        </div>
+
+        <!-- Legend -->
+        <div class="seat-legend">
+          <div class="legend-item">
+            <span class="seat-demo available"></span>
+            <span>Available (₹250)</span>
+          </div>
+          <div class="legend-item">
+            <span class="seat-demo selected"></span>
+            <span>Selected (2 Seats)</span>
+          </div>
+          <div class="legend-item">
+            <span class="seat-demo booked"></span>
+            <span>Booked / Reserved</span>
+          </div>
+        </div>
+
+        <!-- Static Centered Seating Grid (Rows A - F) -->
+        <div class="seat-grid">
+          
+          <!-- Row A -->
+          <div class="seat-row">
+            <span class="seat-row-name">A</span>
+            <div class="seat-units">
+              <div class="seat-box available">A1</div>
+              <div class="seat-box available">A2</div>
+              <div class="seat-box booked">A3</div>
+              <div class="seat-box booked">A4</div>
+              <div class="seat-spacer"></div>
+              <div class="seat-box available">A5</div>
+              <div class="seat-box available">A6</div>
+            </div>
+          </div>
+
+          <!-- Row B -->
+          <div class="seat-row">
+            <span class="seat-row-name">B</span>
+            <div class="seat-units">
+              <div class="seat-box available">B1</div>
+              <div class="seat-box available">B2</div>
+              <div class="seat-box available">B3</div>
+              <div class="seat-box available">B4</div>
+              <div class="seat-spacer"></div>
+              <div class="seat-box available">B5</div>
+              <div class="seat-box available">B6</div>
+            </div>
+          </div>
+
+          <!-- Row C -->
+          <div class="seat-row">
+            <span class="seat-row-name">C</span>
+            <div class="seat-units">
+              <div class="seat-box booked">C1</div>
+              <div class="seat-box booked">C2</div>
+              <div class="seat-box available">C3</div>
+              <div class="seat-box available">C4</div>
+              <div class="seat-spacer"></div>
+              <div class="seat-box available">C5</div>
+              <div class="seat-box available">C6</div>
+            </div>
+          </div>
+
+          <!-- Row D (Selected Demonstration) -->
+          <div class="seat-row">
+            <span class="seat-row-name">D</span>
+            <div class="seat-units">
+              <div class="seat-box available">D1</div>
+              <div class="seat-box available">D2</div>
+              <div class="seat-box selected" title="Selected Seat D3">D3</div>
+              <div class="seat-box selected" title="Selected Seat D4">D4</div>
+              <div class="seat-spacer"></div>
+              <div class="seat-box available">D5</div>
+              <div class="seat-box available">D6</div>
+            </div>
+          </div>
+
+          <!-- Row E -->
+          <div class="seat-row">
+            <span class="seat-row-name">E</span>
+            <div class="seat-units">
+              <div class="seat-box available">E1</div>
+              <div class="seat-box available">E2</div>
+              <div class="seat-box booked">E3</div>
+              <div class="seat-box booked">E4</div>
+              <div class="seat-spacer"></div>
+              <div class="seat-box available">E5</div>
+              <div class="seat-box available">E6</div>
+            </div>
+          </div>
+
+          <!-- Row F -->
+          <div class="seat-row">
+            <span class="seat-row-name">F</span>
+            <div class="seat-units">
+              <div class="seat-box available">F1</div>
+              <div class="seat-box available">F2</div>
+              <div class="seat-box available">F3</div>
+              <div class="seat-box available">F4</div>
+              <div class="seat-spacer"></div>
+              <div class="seat-box booked">F5</div>
+              <div class="seat-box booked">F6</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Seated Status Bottom Action -->
+        <div style="border-top: 1px solid var(--border-color); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
+          <div>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">Current Selection: <strong>Seats D3, D4 (2 Tickets)</strong></p>
+            <p style="font-size: 1.1rem; font-weight: 700;">Subtotal: ₹500.00</p>
+          </div>
+          <div style="display: flex; gap: 12px;">
+            <a href="booking.html" class="btn btn-secondary" style="color: var(--text-main); border-color: var(--border-color);">&larr; Change Show</a>
+            <a href="checkout.html" class="btn btn-primary">Proceed to Checkout &rarr;</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <p>&copy; CineShow Seating Engine.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
