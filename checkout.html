@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Summary &amp; Snacks | CineShow</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="brand-logo"><span>CINE</span><span class="brand-highlight">SHOW</span></a>
+      <nav class="site-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="movies.html" class="nav-link">Movies</a></li>
+          <li><a href="cinemas.html" class="nav-link">Cinemas</a></li>
+          <li><a href="offers.html" class="nav-link">Offers</a></li>
+          <li><a href="admin.html" class="nav-link">Admin</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="login.html" class="btn btn-primary btn-sm">Sign In</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-header-band">
+    <div class="container">
+      <h1>Booking Summary &amp; Concessions</h1>
+      <p>Review your booking details, add snacks and beverages, and check final pricing.</p>
+    </div>
+  </div>
+
+  <main class="main-content">
+    <div class="container">
+
+      <div class="checkout-layout">
+
+        <div>
+
+          <div class="order-box">
+            <h2 class="order-box-title">Ticket Details</h2>
+            <div class="ticket-detail-grid">
+              <div>
+                <span class="detail-label">Movie Title</span>
+                <strong>Rangbaaz Returns</strong>
+              </div>
+              <div>
+                <span class="detail-label">Multiplex &amp; Hall</span>
+                <strong>CineShow Grand Multiplex, Screen 1</strong>
+              </div>
+              <div>
+                <span class="detail-label">Date &amp; Show Time</span>
+                <strong>Sat, 18 Oct 2026 • 10:00 AM</strong>
+              </div>
+              <div>
+                <span class="detail-label">Seats Assigned</span>
+                <strong>D3, D4 (Executive Tier)</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="order-box">
+            <h2 class="order-box-title">Grab a Bite (Snacks &amp; Beverages)</h2>
+            <p class="snack-section-desc">Pre-order snacks now to enjoy direct delivery to your cinema seat.</p>
+
+            <form action="payment.html" method="get">
+
+              <div class="snack-card-item">
+                <div class="snack-info">
+                  <input type="checkbox" id="snack1" name="snack" value="salted-popcorn" checked class="snack-checkbox">
+                  <label for="snack1">
+                    <strong>Large Salted Popcorn (140g)</strong>
+                    <div class="snack-desc-text">Crispy golden kernels tossed in butter</div>
+                  </label>
+                </div>
+                <span class="snack-price">₹210</span>
+              </div>
+
+              <div class="snack-card-item">
+                <div class="snack-info">
+                  <input type="checkbox" id="snack2" name="snack" value="coke" checked class="snack-checkbox">
+                  <label for="snack2">
+                    <strong>Chilled Coca-Cola Fountain (500ml)</strong>
+                    <div class="snack-desc-text">Refreshing cold beverage</div>
+                  </label>
+                </div>
+                <span class="snack-price">₹120</span>
+              </div>
+
+              <div class="snack-card-item">
+                <div class="snack-info">
+                  <input type="checkbox" id="snack3" name="snack" value="nachos" class="snack-checkbox">
+                  <label for="snack3">
+                    <strong>Mexican Cheesy Nachos</strong>
+                    <div class="snack-desc-text">Served with warm jalapeño cheese dip</div>
+                  </label>
+                </div>
+                <span class="snack-price">₹230</span>
+              </div>
+
+              <div class="snack-form-actions">
+                <a href="seats.html" class="btn btn-secondary btn-secondary-neutral">Back to Seats</a>
+                <button type="submit" class="btn btn-primary">Proceed to Payment</button>
+              </div>
+
+            </form>
+          </div>
+
+        </div>
+
+        <aside class="summary-card">
+          <h3>Payment Breakdown</h3>
+          <div class="bill-line">
+            <span>Tickets (2 × ₹250)</span>
+            <span>₹500.00</span>
+          </div>
+          <div class="bill-line">
+            <span>Convenience Fee</span>
+            <span>₹59.00</span>
+          </div>
+          <div class="bill-line">
+            <span>GST / Integrated Taxes</span>
+            <span>₹10.62</span>
+          </div>
+          <div class="bill-line">
+            <span>Snacks &amp; Concessions</span>
+            <span>₹330.00</span>
+          </div>
+          <div class="bill-line total">
+            <span>Total Payable</span>
+            <span class="text-primary">₹899.62</span>
+          </div>
+
+          <div class="payment-cta-wrap">
+            <a href="payment.html" class="btn btn-primary btn-block">Make Payment</a>
+          </div>
+        </aside>
+
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <p>&copy; CineShow Checkout System.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

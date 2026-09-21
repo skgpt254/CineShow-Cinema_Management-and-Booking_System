@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Movie Tickets | CineShow</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="brand-logo"><span>CINE</span><span class="brand-highlight">SHOW</span></a>
+      <nav class="site-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="movies.html" class="nav-link">Movies</a></li>
+          <li><a href="cinemas.html" class="nav-link">Cinemas</a></li>
+          <li><a href="offers.html" class="nav-link">Offers</a></li>
+          <li><a href="admin.html" class="nav-link">Admin</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="login.html" class="btn btn-primary btn-sm">Sign In</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-header-band">
+    <div class="container">
+      <h1>Step-by-Step Ticket Reservation</h1>
+      <p>Configure your cinema preference, screening date, and preferred showtime slot.</p>
+    </div>
+  </div>
+
+  <main class="main-content">
+    <div class="container">
+
+      <form action="seats.html" method="get" class="booking-form-card">
+
+        <section class="form-step">
+          <div class="step-header">
+            <span class="step-num">1</span>
+            <h2 class="step-title">Select Movie</h2>
+          </div>
+          <div class="form-group">
+            <label for="bookMovie" class="form-label">Chosen Film</label>
+            <select id="bookMovie" name="movie" class="form-control" required>
+              <option value="rangbaaz" selected>Rangbaaz Returns (Hindi • 2D)</option>
+              <option value="yugantar">Yugantar: Chronicles (Telugu / Hindi • IMAX 3D)</option>
+              <option value="shaitani-raat">Shaitani Raat (Hindi • 2D)</option>
+              <option value="eagle-squadron">Eagle Squadron: Skies of Valor (Hindi • 3D)</option>
+              <option value="last-guardian">The Last Guardian (English • IMAX)</option>
+            </select>
+          </div>
+        </section>
+
+        <section class="form-step">
+          <div class="step-header">
+            <span class="step-num">2</span>
+            <h2 class="step-title">Select Multiplex / Theatre</h2>
+          </div>
+          <div class="form-group">
+            <label for="bookCinema" class="form-label">Cinema Location</label>
+            <select id="bookCinema" name="cinema" class="form-control" required>
+              <option value="grand-mathura" selected>CineShow Grand Multiplex - Civil Lines, Mathura</option>
+              <option value="imperial-agra">CineShow Imperial IMAX - Sanjay Place, Agra</option>
+              <option value="heritage-delhi">CineShow Heritage Screen - Connaught Place, Delhi</option>
+            </select>
+          </div>
+        </section>
+
+        <section class="form-step">
+          <div class="step-header">
+            <span class="step-num">3</span>
+            <h2 class="step-title">Select Screening Date</h2>
+          </div>
+          <div class="form-group">
+            <label for="bookDate" class="form-label">Show Date</label>
+            <input type="date" id="bookDate" name="date" class="form-control" value="2026-10-18" required>
+          </div>
+        </section>
+
+        <section class="form-step">
+          <div class="step-header">
+            <span class="step-num">4</span>
+            <h2 class="step-title">Select Show Timings</h2>
+          </div>
+          <fieldset class="form-group form-group-fieldset">
+            <legend class="visually-hidden">Showtime Choice</legend>
+            <div class="radio-tile-group">
+              <label class="radio-tile-label">
+                <input type="radio" name="showtime" value="10:00 AM" checked>
+                <div class="radio-tile-card">
+                  <strong>10:00 AM</strong>
+                  <div class="radio-tile-subtext">Screen 1</div>
+                </div>
+              </label>
+
+              <label class="radio-tile-label">
+                <input type="radio" name="showtime" value="01:30 PM">
+                <div class="radio-tile-card">
+                  <strong>01:30 PM</strong>
+                  <div class="radio-tile-subtext">Screen 1</div>
+                </div>
+              </label>
+
+              <label class="radio-tile-label">
+                <input type="radio" name="showtime" value="04:45 PM">
+                <div class="radio-tile-card">
+                  <strong>04:45 PM</strong>
+                  <div class="radio-tile-subtext">Screen 1</div>
+                </div>
+              </label>
+
+              <label class="radio-tile-label">
+                <input type="radio" name="showtime" value="08:00 PM">
+                <div class="radio-tile-card">
+                  <strong>08:00 PM</strong>
+                  <div class="radio-tile-subtext">Prime Gold</div>
+                </div>
+              </label>
+            </div>
+          </fieldset>
+        </section>
+
+        <div class="form-actions-row">
+          <a href="movies.html" class="btn btn-secondary btn-secondary-neutral">Cancel</a>
+          <button type="submit" class="btn btn-primary">Proceed to Seat Layout</button>
+        </div>
+
+      </form>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <p>&copy; CineShow Booking Workflow Demonstration.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

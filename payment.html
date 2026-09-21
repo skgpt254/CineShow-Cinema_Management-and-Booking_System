@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Gateway Demonstration | CineShow</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="brand-logo"><span>CINE</span><span class="brand-highlight">SHOW</span></a>
+      <nav class="site-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="movies.html" class="nav-link">Movies</a></li>
+          <li><a href="cinemas.html" class="nav-link">Cinemas</a></li>
+          <li><a href="offers.html" class="nav-link">Offers</a></li>
+          <li><a href="admin.html" class="nav-link">Admin</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="login.html" class="btn btn-primary btn-sm">Sign In</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-header-band">
+    <div class="container">
+      <h1>Payment Portal (Demo)</h1>
+      <p>Secure Academic Simulation • Amount Payable: <strong>₹899.62</strong></p>
+    </div>
+  </div>
+
+  <main class="main-content">
+    <div class="container payment-page-container">
+
+      <form action="success.html" method="get" class="order-box">
+
+        <h2 class="order-box-title">Select Payment Mode</h2>
+
+        <div class="payment-tabs">
+
+          <label class="pay-tab-label">
+            <input type="radio" name="paymethod" value="upi" checked>
+            <div>
+              <strong>Instant UPI (Google Pay, PhonePe, Paytm, BHIM)</strong>
+              <div class="snack-desc-text">Zero convenience surcharge on UPI</div>
+            </div>
+          </label>
+          <div class="pay-fields-box">
+            <div class="form-group form-group-tight">
+              <label for="upiId" class="form-label">Enter Virtual Payment Address (UPI ID)</label>
+              <input type="text" id="upiId" name="upi_id" class="form-control" placeholder="username@okhdfcbank or 9876543210@paytm" value="student@cineshow">
+            </div>
+          </div>
+
+          <label class="pay-tab-label">
+            <input type="radio" name="paymethod" value="card">
+            <div>
+              <strong>Credit or Debit Card</strong>
+              <div class="snack-desc-text">Visa, MasterCard, RuPay &amp; American Express</div>
+            </div>
+          </label>
+          <div class="pay-fields-box">
+            <div class="form-group">
+              <label for="cardNumber" class="form-label">Card Number</label>
+              <input type="text" id="cardNumber" name="card_num" class="form-control" placeholder="XXXX - XXXX - XXXX - 4242" value="4532 8901 2345 8890">
+            </div>
+            <div class="form-group">
+              <label for="cardHolder" class="form-label">Name On Card</label>
+              <input type="text" id="cardHolder" name="card_holder" class="form-control" placeholder="Full name as printed" value="Aman Gupta">
+            </div>
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label for="cardExp" class="form-label">Expiry (MM/YY)</label>
+                <input type="text" id="cardExp" name="card_exp" class="form-control" placeholder="12/28" value="08/29">
+              </div>
+              <div class="form-group">
+                <label for="cardCvv" class="form-label">CVV / CVC</label>
+                <input type="password" id="cardCvv" name="card_cvv" class="form-control" placeholder="123" maxlength="4" value="789">
+              </div>
+            </div>
+          </div>
+
+          <label class="pay-tab-label">
+            <input type="radio" name="paymethod" value="netbanking">
+            <div>
+              <strong>Net Banking</strong>
+              <div class="snack-desc-text">All Major Indian PSU and Private Banks</div>
+            </div>
+          </label>
+
+        </div>
+
+        <div class="payment-form-actions">
+          <a href="checkout.html" class="btn btn-secondary btn-secondary-neutral">Back</a>
+          <button type="submit" class="btn btn-primary btn-lg">Complete Payment &amp; Generate Ticket</button>
+        </div>
+
+      </form>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <p>&copy; CineShow Payment Demonstration.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
