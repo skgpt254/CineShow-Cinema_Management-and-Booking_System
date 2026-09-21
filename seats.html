@@ -26,25 +26,23 @@
     </div>
   </header>
 
-  <div class="page-header-band">
-    <div class="container" style="text-align: center;">
+  <div class="page-header-band text-center">
+    <div class="container">
       <h1>Select Your Cinema Seats</h1>
-      <p>Mirzapur: The Final Reckoning • CineShow Grand Multiplex • Screen 1 (Dolby Atmos)</p>
+      <p>Rangbaaz Returns • CineShow Grand Multiplex • Screen 1 (Dolby Atmos)</p>
     </div>
   </div>
 
   <main class="main-content">
     <div class="container">
-      
+
       <div class="seating-wrapper">
-        
-        <!-- Screen Bar -->
+
         <div class="screen-indicator">
           <div class="screen-bar"></div>
-          <span class="screen-text">All Eyes This Way — Cinema Screen</span>
+          <span class="screen-text">All Eyes This Way, Cinema Screen</span>
         </div>
 
-        <!-- Legend -->
         <div class="seat-legend">
           <div class="legend-item">
             <span class="seat-demo available"></span>
@@ -60,87 +58,80 @@
           </div>
         </div>
 
-        <!-- Static Centered Seating Grid (Rows A - F) -->
         <div class="seat-grid">
-          
-          <!-- Row A -->
+
           <div class="seat-row">
             <span class="seat-row-name">A</span>
             <div class="seat-units">
-              <div class="seat-box available">A1</div>
-              <div class="seat-box available">A2</div>
+              <input type="checkbox" id="seat-A1" class="seat-input"><label for="seat-A1" class="seat-box available">A1</label>
+              <input type="checkbox" id="seat-A2" class="seat-input"><label for="seat-A2" class="seat-box available">A2</label>
               <div class="seat-box booked">A3</div>
               <div class="seat-box booked">A4</div>
               <div class="seat-spacer"></div>
-              <div class="seat-box available">A5</div>
-              <div class="seat-box available">A6</div>
+              <input type="checkbox" id="seat-A5" class="seat-input"><label for="seat-A5" class="seat-box available">A5</label>
+              <input type="checkbox" id="seat-A6" class="seat-input"><label for="seat-A6" class="seat-box available">A6</label>
             </div>
           </div>
 
-          <!-- Row B -->
           <div class="seat-row">
             <span class="seat-row-name">B</span>
             <div class="seat-units">
-              <div class="seat-box available">B1</div>
-              <div class="seat-box available">B2</div>
-              <div class="seat-box available">B3</div>
-              <div class="seat-box available">B4</div>
+              <input type="checkbox" id="seat-B1" class="seat-input"><label for="seat-B1" class="seat-box available">B1</label>
+              <input type="checkbox" id="seat-B2" class="seat-input"><label for="seat-B2" class="seat-box available">B2</label>
+              <input type="checkbox" id="seat-B3" class="seat-input"><label for="seat-B3" class="seat-box available">B3</label>
+              <input type="checkbox" id="seat-B4" class="seat-input"><label for="seat-B4" class="seat-box available">B4</label>
               <div class="seat-spacer"></div>
-              <div class="seat-box available">B5</div>
-              <div class="seat-box available">B6</div>
+              <input type="checkbox" id="seat-B5" class="seat-input"><label for="seat-B5" class="seat-box available">B5</label>
+              <input type="checkbox" id="seat-B6" class="seat-input"><label for="seat-B6" class="seat-box available">B6</label>
             </div>
           </div>
 
-          <!-- Row C -->
           <div class="seat-row">
             <span class="seat-row-name">C</span>
             <div class="seat-units">
               <div class="seat-box booked">C1</div>
               <div class="seat-box booked">C2</div>
-              <div class="seat-box available">C3</div>
-              <div class="seat-box available">C4</div>
+              <input type="checkbox" id="seat-C3" class="seat-input"><label for="seat-C3" class="seat-box available">C3</label>
+              <input type="checkbox" id="seat-C4" class="seat-input"><label for="seat-C4" class="seat-box available">C4</label>
               <div class="seat-spacer"></div>
-              <div class="seat-box available">C5</div>
-              <div class="seat-box available">C6</div>
+              <input type="checkbox" id="seat-C5" class="seat-input"><label for="seat-C5" class="seat-box available">C5</label>
+              <input type="checkbox" id="seat-C6" class="seat-input"><label for="seat-C6" class="seat-box available">C6</label>
             </div>
           </div>
 
-          <!-- Row D (Selected Demonstration) -->
           <div class="seat-row">
             <span class="seat-row-name">D</span>
             <div class="seat-units">
-              <div class="seat-box available">D1</div>
-              <div class="seat-box available">D2</div>
-              <div class="seat-box selected" title="Selected Seat D3">D3</div>
-              <div class="seat-box selected" title="Selected Seat D4">D4</div>
+              <input type="checkbox" id="seat-D1" class="seat-input"><label for="seat-D1" class="seat-box available">D1</label>
+              <input type="checkbox" id="seat-D2" class="seat-input"><label for="seat-D2" class="seat-box available">D2</label>
+              <input type="checkbox" id="seat-D3" class="seat-input" checked><label for="seat-D3" class="seat-box available">D3</label>
+              <input type="checkbox" id="seat-D4" class="seat-input" checked><label for="seat-D4" class="seat-box available">D4</label>
               <div class="seat-spacer"></div>
-              <div class="seat-box available">D5</div>
-              <div class="seat-box available">D6</div>
+              <input type="checkbox" id="seat-D5" class="seat-input"><label for="seat-D5" class="seat-box available">D5</label>
+              <input type="checkbox" id="seat-D6" class="seat-input"><label for="seat-D6" class="seat-box available">D6</label>
             </div>
           </div>
 
-          <!-- Row E -->
           <div class="seat-row">
             <span class="seat-row-name">E</span>
             <div class="seat-units">
-              <div class="seat-box available">E1</div>
-              <div class="seat-box available">E2</div>
+              <input type="checkbox" id="seat-E1" class="seat-input"><label for="seat-E1" class="seat-box available">E1</label>
+              <input type="checkbox" id="seat-E2" class="seat-input"><label for="seat-E2" class="seat-box available">E2</label>
               <div class="seat-box booked">E3</div>
               <div class="seat-box booked">E4</div>
               <div class="seat-spacer"></div>
-              <div class="seat-box available">E5</div>
-              <div class="seat-box available">E6</div>
+              <input type="checkbox" id="seat-E5" class="seat-input"><label for="seat-E5" class="seat-box available">E5</label>
+              <input type="checkbox" id="seat-E6" class="seat-input"><label for="seat-E6" class="seat-box available">E6</label>
             </div>
           </div>
 
-          <!-- Row F -->
           <div class="seat-row">
             <span class="seat-row-name">F</span>
             <div class="seat-units">
-              <div class="seat-box available">F1</div>
-              <div class="seat-box available">F2</div>
-              <div class="seat-box available">F3</div>
-              <div class="seat-box available">F4</div>
+              <input type="checkbox" id="seat-F1" class="seat-input"><label for="seat-F1" class="seat-box available">F1</label>
+              <input type="checkbox" id="seat-F2" class="seat-input"><label for="seat-F2" class="seat-box available">F2</label>
+              <input type="checkbox" id="seat-F3" class="seat-input"><label for="seat-F3" class="seat-box available">F3</label>
+              <input type="checkbox" id="seat-F4" class="seat-input"><label for="seat-F4" class="seat-box available">F4</label>
               <div class="seat-spacer"></div>
               <div class="seat-box booked">F5</div>
               <div class="seat-box booked">F6</div>
@@ -149,15 +140,14 @@
 
         </div>
 
-        <!-- Seated Status Bottom Action -->
-        <div style="border-top: 1px solid var(--border-color); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
+        <div class="seat-summary-bar">
           <div>
-            <p style="font-size: 0.9rem; color: var(--text-muted);">Current Selection: <strong>Seats D3, D4 (2 Tickets)</strong></p>
-            <p style="font-size: 1.1rem; font-weight: 700;">Subtotal: ₹500.00</p>
+            <p class="seat-summary-note">Current Selection: <strong>Seats D3, D4 (2 Tickets)</strong></p>
+            <p class="seat-summary-subtotal">Subtotal: ₹500.00</p>
           </div>
-          <div style="display: flex; gap: 12px;">
-            <a href="booking.html" class="btn btn-secondary" style="color: var(--text-main); border-color: var(--border-color);">&larr; Change Show</a>
-            <a href="checkout.html" class="btn btn-primary">Proceed to Checkout &rarr;</a>
+          <div class="seat-summary-actions">
+            <a href="booking.html" class="btn btn-secondary btn-secondary-neutral">Change Show</a>
+            <a href="checkout.html" class="btn btn-primary">Proceed to Checkout</a>
           </div>
         </div>
 
