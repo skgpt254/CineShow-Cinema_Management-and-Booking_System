@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 450" width="300" height="450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c10"/>
+      <stop offset="50%" stop-color="#181c24"/>
+      <stop offset="100%" stop-color="#2a230d"/>
+    </linearGradient>
+  </defs>
+  <rect width="300" height="450" fill="url(#bg)"/>
+  <circle cx="60" cy="90" r="70" fill="#e50914" opacity="0.12"/>
+  <circle cx="250" cy="360" r="90" fill="#b80710" opacity="0.10"/>
+  <text x="150" y="212" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">The Last</text>
+  <text x="150" y="240" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">Guardian</text>
+  
+</svg>
