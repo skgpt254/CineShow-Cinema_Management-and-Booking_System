@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Movies | CineShow</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="brand-logo"><span>CINE</span><span class="brand-highlight">SHOW</span></a>
+      <nav class="site-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="movies.html" class="nav-link active">Movies</a></li>
+          <li><a href="cinemas.html" class="nav-link">Cinemas</a></li>
+          <li><a href="offers.html" class="nav-link">Offers</a></li>
+          <li><a href="admin.html" class="nav-link">Admin</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <div class="city-select-wrap">
+          <select class="city-select" aria-label="City Selector">
+            <option>Mathura</option>
+            <option>Agra</option>
+            <option>Delhi</option>
+          </select>
+        </div>
+        <a href="login.html" class="btn btn-primary btn-sm">Sign In</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-header-band">
+    <div class="container">
+      <h1>Explore Movies</h1>
+      <p>Browse current theatrical releases, upcoming spectacles, and filter by your preferred language and formats.</p>
+    </div>
+  </div>
+
+  <main class="main-content">
+    <div class="container">
+      <div class="catalog-layout">
+
+        <aside class="filter-sidebar">
+          <form action="movies.html" method="get">
+            <h3 class="filter-sidebar-title">Filter Shows</h3>
+
+            <fieldset class="filter-group">
+              <legend class="filter-legend">Language</legend>
+              <label class="filter-item">
+                <input type="checkbox" name="lang" value="hindi" checked> Hindi
+              </label>
+              <label class="filter-item">
+                <input type="checkbox" name="lang" value="english" checked> English
+              </label>
+              <label class="filter-item">
+                <input type="checkbox" name="lang" value="telugu"> Telugu
+              </label>
+              <label class="filter-item">
+                <input type="checkbox" name="lang" value="tamil"> Tamil
+              </label>
+            </fieldset>
+
+            <fieldset class="filter-group">
+              <legend class="filter-legend">Genre</legend>
+              <label class="filter-item">
+                <input type="checkbox" name="genre" value="action" checked> Action
+              </label>
+              <label class="filter-item">
+                <input type="checkbox" name="genre" value="comedy"> Comedy
+              </label>
+              <label class="filter-item">
+                <input type="checkbox" name="genre" value="drama"> Drama
+              </label>
+              <label class="filter-item">
+                <input type="checkbox" name="genre" value="thriller"> Thriller
+              </label>
+              <label class="filter-item">
+                <input type="checkbox" name="genre" value="horror"> Horror
+              </label>
+            </fieldset>
+
+            <fieldset class="filter-group">
+              <legend class="filter-legend">Experience / Format</legend>
+              <label class="filter-item">
+                <input type="checkbox" name="format" value="2d" checked> 2D
+              </label>
+              <label class="filter-item">
+                <input type="checkbox" name="format" value="3d"> 3D
+              </label>
+              <label class="filter-item">
+                <input type="checkbox" name="format" value="imax"> IMAX 3D
+              </label>
+              <label class="filter-item">
+                <input type="checkbox" name="format" value="4dx"> 4DX
+              </label>
+            </fieldset>
+
+            <button type="submit" class="btn btn-primary btn-block">Apply Filters</button>
+          </form>
+        </aside>
+
+        <section>
+          <div class="catalog-results-row">
+            <p class="muted-note">Showing <strong>6</strong> Active Movies in Theatres</p>
+          </div>
+
+          <div class="grid-3">
+            <article class="movie-card">
+              <div class="movie-poster-wrap">
+                <span class="movie-badge-lang">Hindi • 2D</span>
+                <img src="images/movie1.svg" alt="Rangbaaz Returns Poster">
+              </div>
+              <div class="movie-card-body">
+                <h3 class="movie-card-title">Rangbaaz Returns</h3>
+                <div class="movie-meta">
+                  <span class="movie-rating">★ 8.9 / 10</span>
+                  <span>2h 42m</span>
+                </div>
+                <p class="movie-tags">Action, Thriller</p>
+                <a href="movie-details.html" class="btn btn-primary btn-block">Book Tickets</a>
+              </div>
+            </article>
+
+            <article class="movie-card">
+              <div class="movie-poster-wrap">
+                <span class="movie-badge-lang">Telugu • IMAX 3D</span>
+                <img src="images/movie2.svg" alt="Yugantar Poster">
+              </div>
+              <div class="movie-card-body">
+                <h3 class="movie-card-title">Yugantar: Chronicles</h3>
+                <div class="movie-meta">
+                  <span class="movie-rating">★ 9.1 / 10</span>
+                  <span>3h 01m</span>
+                </div>
+                <p class="movie-tags">Sci-Fi, Action</p>
+                <a href="movie-details.html" class="btn btn-primary btn-block">Book Tickets</a>
+              </div>
+            </article>
+
+            <article class="movie-card">
+              <div class="movie-poster-wrap">
+                <span class="movie-badge-lang">Hindi • 2D</span>
+                <img src="images/movie3.svg" alt="Shaitani Raat Poster">
+              </div>
+              <div class="movie-card-body">
+                <h3 class="movie-card-title">Shaitani Raat</h3>
+                <div class="movie-meta">
+                  <span class="movie-rating">★ 8.5 / 10</span>
+                  <span>2h 27m</span>
+                </div>
+                <p class="movie-tags">Horror, Comedy</p>
+                <a href="movie-details.html" class="btn btn-primary btn-block">Book Tickets</a>
+              </div>
+            </article>
+
+            <article class="movie-card">
+              <div class="movie-poster-wrap">
+                <span class="movie-badge-lang">Hindi • 3D</span>
+                <img src="images/movie4.svg" alt="Eagle Squadron Poster">
+              </div>
+              <div class="movie-card-body">
+                <h3 class="movie-card-title">Eagle Squadron: Skies of Valor</h3>
+                <div class="movie-meta">
+                  <span class="movie-rating">★ 8.4 / 10</span>
+                  <span>2h 35m</span>
+                </div>
+                <p class="movie-tags">Air Action, Thriller</p>
+                <a href="movie-details.html" class="btn btn-primary btn-block">Book Tickets</a>
+              </div>
+            </article>
+
+            <article class="movie-card">
+              <div class="movie-poster-wrap">
+                <span class="movie-badge-lang">English • IMAX</span>
+                <img src="images/movie5.svg" alt="The Last Guardian Poster">
+              </div>
+              <div class="movie-card-body">
+                <h3 class="movie-card-title">The Last Guardian</h3>
+                <div class="movie-meta">
+                  <span class="movie-rating">★ 9.3 / 10</span>
+                  <span>2h 38m</span>
+                </div>
+                <p class="movie-tags">Crime, Action</p>
+                <a href="movie-details.html" class="btn btn-primary btn-block">Book Tickets</a>
+              </div>
+            </article>
+
+            <article class="movie-card">
+              <div class="movie-poster-wrap">
+                <span class="movie-badge-lang">Hindi • 2D</span>
+                <img src="images/movie6.svg" alt="Milestone Poster">
+              </div>
+              <div class="movie-card-body">
+                <h3 class="movie-card-title">Milestone: Tales of Heart</h3>
+                <div class="movie-meta">
+                  <span class="movie-rating">★ 8.1 / 10</span>
+                  <span>2h 15m</span>
+                </div>
+                <p class="movie-tags">Romance, Drama</p>
+                <a href="movie-details.html" class="btn btn-primary btn-block">Book Tickets</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <p>&copy; CineShow Academic Cinema System. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
