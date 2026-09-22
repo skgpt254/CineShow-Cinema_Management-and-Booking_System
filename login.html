@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer & Staff Login | CineShow</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .validation-message {
+      color: #dc2626;
+      font-size: 0.8125rem;
+      margin-top: 0.375rem;
+      min-height: 1.25rem;
+      display: block;
+    }
+    .form-control.error {
+      border-color: #dc2626;
+      box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
+    }
+    .form-control.error:focus {
+      border-color: #dc2626;
+      box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="brand-logo"><span>CINE</span><span class="brand-highlight">SHOW</span></a>
+      <nav class="site-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="movies.html" class="nav-link">Movies</a></li>
+          <li><a href="cinemas.html" class="nav-link">Cinemas</a></li>
+          <li><a href="offers.html" class="nav-link">Offers</a></li>
+          <li><a href="admin.html" class="nav-link">Admin</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="index.html" class="btn btn-secondary btn-sm">Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+
+      <div class="auth-box">
+        <div class="auth-header">
+          <h2>Welcome Back</h2>
+          <p>Login to manage your bookings, save favourite theatres, or access cinema admin.</p>
+        </div>
+
+        <form id="loginForm" novalidate>
+
+          <div class="form-group">
+            <label for="userEmail" class="form-label">Email or Mobile Number</label>
+            <input type="text" id="userEmail" name="username" class="form-control" placeholder="name@example.com or 9876543210" required>
+            <div class="validation-message" id="emailError" aria-live="polite"></div>
+          </div>
+
+          <div class="form-group">
+            <div class="label-row-between">
+              <label for="userPassword" class="form-label">Password</label>
+              <a href="#" id="forgotPasswordLink" class="link-small-primary">Forgot Password?</a>
+            </div>
+            <input type="password" id="userPassword" name="password" class="form-control" placeholder="••••••••" required>
+            <div class="validation-message" id="passwordError" aria-live="polite"></div>
+          </div>
+
+          <div class="form-group checkbox-row">
+            <input type="checkbox" id="remember" name="remember" class="accent-primary">
+            <label for="remember" class="checkbox-label-text">Remember this browser</label>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">Sign In to Account</button>
+
+          <div class="auth-footer-note">
+            Don't have an account? <a href="#" id="createAccountLink" class="link-primary-bold">Create One Here</a>
+          </div>
+
+          <div class="demo-note-box">
+            <span class="demo-note-text">Demonstration Note: This is a demo. No real authentication occurs.</span>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <p>&copy; CineShow Academic Cinema Platform.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const form = document.getElementById('loginForm');
+      const emailInput = document.getElementById('userEmail');
+      const passwordInput = document.getElementById('userPassword');
+      const emailError = document.getElementById('emailError');
+      const passwordError = document.getElementById('passwordError');
+      const forgotPasswordLink = document.getElementById('forgotPasswordLink');
+      const createAccountLink = document.getElementById('createAccountLink');
+
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      const mobileRegex = /^[6-9]\d{9}$/;
+
+      function validateEmail(value) {
+        const trimmed = value.trim();
+        if (!trimmed) {
+          return 'Email or mobile number is required';
+        }
+        if (trimmed.includes('@')) {
+          if (!emailRegex.test(trimmed)) {
+            return 'Enter a valid email address (e.g., name@example.com)';
+          }
+        } else if (!mobileRegex.test(trimmed)) {
+          return 'Enter a valid 10-digit Indian mobile number';
+        }
+        return '';
+      }
+
+      function validatePassword(value) {
+        if (!value) {
+          return 'Password is required';
+        }
+        if (value.length < 8) {
+          return 'Password must be at least 8 characters';
+        }
+        return '';
+      }
+
+      function showError(input, errorEl, message) {
+        input.classList.add('error');
+        errorEl.textContent = message;
+      }
+
+      function clearError(input, errorEl) {
+        input.classList.remove('error');
+        errorEl.textContent = '';
+      }
+
+      emailInput.addEventListener('blur', function () {
+        const error = validateEmail(this.value);
+        if (error) showError(this, emailError, error);
+        else clearError(this, emailError);
+      });
+
+      passwordInput.addEventListener('blur', function () {
+        const error = validatePassword(this.value);
+        if (error) showError(this, passwordError, error);
+        else clearError(this, passwordError);
+      });
+
+      emailInput.addEventListener('input', function () {
+        if (this.classList.contains('error')) {
+          const error = validateEmail(this.value);
+          if (!error) clearError(this, emailError);
+        }
+      });
+
+      passwordInput.addEventListener('input', function () {
+        if (this.classList.contains('error')) {
+          const error = validatePassword(this.value);
+          if (!error) clearError(this, passwordError);
+        }
+      });
+
+      forgotPasswordLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        alert('Demo: Forgot Password flow not implemented. In a real app, this would open a password reset page.');
+      });
+
+      createAccountLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        alert('Demo: Account creation not implemented. In a real app, this would open a registration page.');
+      });
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const emailErrorMsg = validateEmail(emailInput.value);
+        const passwordErrorMsg = validatePassword(passwordInput.value);
+
+        let hasError = false;
+
+        if (emailErrorMsg) {
+          showError(emailInput, emailError, emailErrorMsg);
+          hasError = true;
+        } else {
+          clearError(emailInput, emailError);
+        }
+
+        if (passwordErrorMsg) {
+          showError(passwordInput, passwordError, passwordErrorMsg);
+          hasError = true;
+        } else {
+          clearError(passwordInput, passwordError);
+        }
+
+        if (!hasError) {
+          alert('Demo: Login successful! Redirecting to homepage...');
+          window.location.href = 'index.html';
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
